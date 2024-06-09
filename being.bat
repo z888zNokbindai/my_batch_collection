@@ -1,5 +1,6 @@
 @echo off
 color A
+title aUtOtAsK
 :main
 echo ===========
 echo a. For devices that have Windows licenses and Office licenses.
