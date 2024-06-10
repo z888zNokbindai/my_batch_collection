@@ -2,6 +2,7 @@
 color A
 title aUtOtAsK
 :main
+echo Main Menu
 echo ===========
 echo a. For devices that have Windows licenses and Office licenses.
 echo b. For devices that have Windows licenses.
