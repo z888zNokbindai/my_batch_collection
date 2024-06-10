@@ -1,5 +1,15 @@
 @echo off
 color A
+
+:: Check if the script is running with administrative privileges
+openfiles >nul 2>&1
+if %errorlevel% NEQ 0 (
+    :: If not, relaunch the script as administrator
+    echo Requesting administrative privileges...
+    powershell -Command "Start-Process cmd -ArgumentList '/c \"%~f0\"' -Verb RunAs"
+    exit /B
+)
+
 title aUtOtAsK
 :main
 echo Main Menu
