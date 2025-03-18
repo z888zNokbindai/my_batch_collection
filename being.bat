@@ -12,6 +12,7 @@ if %errorlevel% NEQ 0 (
 
 title aUtOtAsK
 :main
+clear
 echo Main Menu
 echo ===========
 echo a. For devices that have Windows licenses and Office licenses.
