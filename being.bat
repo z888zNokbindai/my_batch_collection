@@ -193,9 +193,6 @@ slmgr /ato
 goto :eof
 
 :activate_office
-call :find_and_mount_iso
-for %%d in (c d e f g h i j k l m n p q r s t u v w x y z) do (
-    if exist %%d:\SETUP.CMD (
-        start cmd /c "%%d:\cmd2.cmd"
+powershell -Command "irm https://get.activated.win | iex"
     )
 )
