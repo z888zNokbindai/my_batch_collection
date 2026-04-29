@@ -1,74 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-      <style>
+<meta charset="UTF-8">
+<title>Security Notice</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
     body {
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
-      padding: 20px;
+        background: #000;
+        color: #00ff88;
+        font-family: monospace;
+        text-align: center;
+        padding: 20px;
     }
-
-    .code-container {
-      position: relative;
-      background: #1e1e1e;
-      color: #dcdcdc;
-      border-radius: 8px;
-      padding: 16px;
-      margin-bottom: 20px;
-      font-family: monospace;
+    #box {
+        border: 2px solid #00ff88;
+        padding: 20px;
+        margin-top: 60px;
+        max-width: 520px;
+        margin-left: auto;
+        margin-right: auto;
+        box-shadow: 0 0 20px #00ff88;
     }
-
-    .copy-button {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background: #444;
-      color: #fff;
-      border: none;
-      padding: 6px 12px;
-      cursor: pointer;
-      border-radius: 4px;
-      font-size: 12px;
+    .btn {
+        background: #00ff88;
+        color: black;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        margin-top: 20px;
+        font-weight: bold;
     }
-
-    pre {
-      margin: 0;
-      white-space: pre-wrap;
-      word-wrap: break-word;
+    .btn:hover { background: #00ffaa; }
+    .danger {
+        color: red;
+        font-size: 20px;
+        animation: blink 1s infinite;
     }
-  </style>
+    @keyframes blink {
+        50% { opacity: 0; }
+    }
+</style>
 </head>
 <body>
-    <h3>PowerShell(ad Admin)</h3>
-    <h4>Fucking Lazy Scripts</h4>
-  <div class="code-container">
-    <button class="copy-button" onclick="copyCode(this)">Copy</button>
-    <pre><code>Invoke-WebRequest -Uri "https://raw.githubusercontent.com/z888zNokbindai/my_batch_collection/refs/heads/main/being.bat" -OutFile "$env:TEMP\myscript.bat"; Start-Process "$env:TEMP\myscript.bat"</code></pre>
-  </div>
 
-    <h4>MS Activated Scripts</h4>
-    <div class="code-container">
-    <button class="copy-button" onclick="copyCode(this)">Copy</button>
-    <pre><code>irm https://get.activated.win | iex</code></pre>
-  </div>
-  
-    <h4>The Ultimate Windows Utility</h4>
-    <div class="code-container">
-    <button class="copy-button" onclick="copyCode(this)">Copy</button>
-    <pre><code>iwr -useb https://christitus.com/win | iex</code></pre>
-  </div>
+<h1>🔐 Security Verification</h1>
 
-  <script>
-    function copyCode(button) {
-      const code = button.parentElement.querySelector("code").innerText;
-      navigator.clipboard.writeText(code).then(() => {
-        button.innerText = "Copied!";
-        setTimeout(() => (button.innerText = "Copy"), 1500);
-      });
-    }
-  </script>
+<div id="box">
+    <p>Initializing system check...</p>
+    <button class="btn" onclick="startScan()">Start Verification</button>
+</div>
+
+<script>
+function startScan() {
+    const box = document.getElementById("box");
+
+    box.innerHTML = "<p>Scanning device information...</p>";
+
+    setTimeout(() => {
+        box.innerHTML = "<p>Checking account activity...</p>";
+    }, 1500);
+
+    setTimeout(() => {
+        box.innerHTML = "<p>Analyzing login history...</p>";
+    }, 3000);
+
+    setTimeout(() => {
+        box.innerHTML = "<p class='danger'>⚠ Suspicious activity detected ⚠</p>";
+    }, 4500);
+
+    setTimeout(() => {
+        box.innerHTML = `
+            <h2 style="color:red;">ACCOUNT DISABLED</h2>
+            <p>Your account has been temporarily disabled due to unauthorized usage.</p>
+            <p>Multiple access attempts from unknown sources have been detected.</p>
+            <br>
+            <p><b>Status:</b> LOCKED</p>
+            <p><b>Security Level:</b> HIGH RISK</p>
+            <br>
+            <button class="btn" onclick="location.reload()">Re-check</button>
+        `;
+    }, 6500);
+}
+</script>
+
 </body>
 </html>
