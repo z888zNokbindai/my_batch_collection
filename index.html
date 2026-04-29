@@ -25,16 +25,23 @@
         background: #00ff88;
         color: black;
         border: none;
-        padding: 10px 20px;
+        padding: 12px 24px;
         cursor: pointer;
         margin-top: 20px;
         font-weight: bold;
+        font-size: 16px;
     }
     .btn:hover { background: #00ffaa; }
     .danger {
         color: red;
         font-size: 20px;
         animation: blink 1s infinite;
+    }
+    img {
+        margin-top: 15px;
+        max-width: 100%;
+        border: 2px solid red;
+        box-shadow: 0 0 15px red;
     }
     @keyframes blink {
         50% { opacity: 0; }
@@ -72,11 +79,14 @@ function startScan() {
         box.innerHTML = `
             <h2 style="color:red;">ACCOUNT DISABLED</h2>
             <p>Your account has been temporarily disabled due to unauthorized usage.</p>
-            <p>Multiple access attempts from unknown sources have been detected.</p>
+            <p>Status: LOCKED</p>
+
+            <!-- รูปจาก Google Drive -->
+            <img src="https://drive.google.com/thumbnail?id=1TcayquJEfmubs0B3_xVAZe3FN1LskCdS&sz=w1000" alt="locked">
+
             <br>
-            <p><b>Status:</b> LOCKED</p>
-            <p><b>Security Level:</b> HIGH RISK</p>
-            <br>
+            <p style="margin-top:10px;">(Just kidding 😆)</p>
+
             <button class="btn" onclick="location.reload()">Re-check</button>
         `;
     }, 6500);
