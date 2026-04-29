@@ -21,17 +21,6 @@
         margin-right: auto;
         box-shadow: 0 0 20px #00ff88;
     }
-    .btn {
-        background: #00ff88;
-        color: black;
-        border: none;
-        padding: 12px 24px;
-        cursor: pointer;
-        margin-top: 20px;
-        font-weight: bold;
-        font-size: 16px;
-    }
-    .btn:hover { background: #00ffaa; }
     .danger {
         color: red;
         font-size: 20px;
@@ -54,26 +43,27 @@
 
 <div id="box">
     <p>Initializing system check...</p>
-    <button class="btn" onclick="startScan()">Start Verification</button>
 </div>
 
 <script>
 function startScan() {
     const box = document.getElementById("box");
 
-    box.innerHTML = "<p>Scanning device information...</p>";
+    setTimeout(() => {
+        box.innerHTML = "<p>Scanning device information...</p>";
+    }, 800);
 
     setTimeout(() => {
         box.innerHTML = "<p>Checking account activity...</p>";
-    }, 1500);
+    }, 2000);
 
     setTimeout(() => {
         box.innerHTML = "<p>Analyzing login history...</p>";
-    }, 3000);
+    }, 3500);
 
     setTimeout(() => {
         box.innerHTML = "<p class='danger'>⚠ Suspicious activity detected ⚠</p>";
-    }, 4500);
+    }, 5000);
 
     setTimeout(() => {
         box.innerHTML = `
@@ -81,16 +71,15 @@ function startScan() {
             <p>Your account has been temporarily disabled due to unauthorized usage.</p>
             <p>Status: LOCKED</p>
 
-            <!-- รูปจาก Google Drive -->
             <img src="https://drive.google.com/thumbnail?id=1TcayquJEfmubs0B3_xVAZe3FN1LskCdS&sz=w1000" alt="locked">
 
             <br>
-            <p style="margin-top:10px;">(Just kidding 😆)</p>
-
-            <button class="btn" onclick="location.reload()">Re-check</button>
         `;
-    }, 6500);
+    }, 7000);
 }
+
+// auto run ทันทีเมื่อโหลดหน้า
+window.onload = startScan;
 </script>
 
 </body>
